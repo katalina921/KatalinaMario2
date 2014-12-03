@@ -71,8 +71,8 @@ game.LevelTrigger = me.Entity.extend({
         this._super(me.Entity, 'init', [x, y, settings]);
         this.body.onCollision = this.onCollision.bind(this);
         this.level = settings.level;
-        this.xSpawn.settings.xSpawn;
-        this.ySpawn.settings.ySpawn;
+        this.xSpawn = settings.xSpawn;
+        this.ySpawn = settings.ySpawn;
     },
     onCollision: function() {
         this.body.setCollisonMask(me.collisions.types.NO_OBJECT);
