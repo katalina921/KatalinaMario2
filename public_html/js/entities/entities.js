@@ -75,8 +75,12 @@ game.LevelTrigger = me.Entity.extend({
         this.ySpawn = settings.ySpawn;
     },
     onCollision: function() {
-        this.body.setCollisonMask(me.collisions.types.NO_OBJECT);
+        this.body.setCollisionMask(me.collision.types.NO_OBJECT);
         me.levelDirector.loadLevel(this.level);
         me.state.current().resetPlayer(this.xSpawn, this.ySpawn);
     }
-    });
+});
+
+game.BadGuy = me.Entity.extend({
+    
+});
