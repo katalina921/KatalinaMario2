@@ -8,6 +8,9 @@ game.resources = [
     {name: "mario", type: "image", src: "data/img/player1.png"},
     {name: "332872", type: "image", src: "data/img/332872.png"},
     {name: "item-spritesheet", type: "image", src: "data/img/item-spritesheet.png"},
+    {name: "Lara", type: "image", src: "data/img/Lara.png"},
+    {name: "clouds2", type: "image", src: "data/img/clouds2.jpg"},
+    {name: "title-screen3", type: "image", src: "data/img/title-screen3.jpg"},
     /* Atlases 
      * @example
      * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
@@ -19,7 +22,7 @@ game.resources = [
      * {name: "example01", type: "tmx", src: "data/map/example01.json"},
      */
     {name: "Katlevel01", type: "tmx", src: "data/map/Katlevel01.tmx"},
-    {name: "Katlevel02", type: "tmx", src: "data/map/Katlevel03.tmx"},
+    {name: "Katlevel02", type: "tmx", src: "data/map/Katlevel02.tmx"},
 //     * @example
 //     * {name: "example_bgm", type: "audio", src: "data/bgm/"},
 //     */
