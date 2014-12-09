@@ -20,8 +20,6 @@ game.PlayerEntity = me.Entity.extend({
         this.body.setVelocity(5, 20);
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
     },
-    
-    
 //   to make our charaters move 
     update: function(delta) {
         if (me.input.isKeyPressed("right")) {
@@ -63,7 +61,9 @@ game.PlayerEntity = me.Entity.extend({
         return true;
     },
     collideHandler: function(response) {
-
+        if (response.b.type === 'badguy') {
+            me.state.change(me.state.MENU);
+        }
     }
 
 });
@@ -86,5 +86,48 @@ game.LevelTrigger = me.Entity.extend({
 });
 
 game.BadGuy = me.Entity.extend({
-    
+    init: function(x, y, settings) {
+        this._super(me.Entity, 'init', [x, y, {
+                image: "slime",
+                spritwidth: "60",
+                spriteheight: "28",
+                width: 60,
+                height: 28,
+                getShaoe: function() {
+                    return (new me.Rect(0, 0, 60, 28)).toPolygon();
+                }
+            }]);
+        this.spritewidth = 60;
+        x = ths.pos.x;
+        this.startX = x;
+        this.endX = x + width - this.spritewidth;
+        this.pos.x = x + width - this.spritewidth;
+        this.updateBounds();
+
+        this.alwaysUpdate = true;
+
+        this.walkLeft = false;
+        this.alive = true;
+        this.type = "badguy";
+    },
+    update: function(delta) {
+        this.body.update(delta);
+        me.collision.check(this, true, this.collideHandler.bind(this), true);
+
+        if (this.alive) {
+            if (this.walkLeft && this.pos.x <= this.startX) {
+                this.walkLeft = false;
+            } else if (!this.walkLeft && this.pos.x >= this.endX) {
+                this.walkLeft = true;
+            }
+            this.flipX(!this.walkLeft);
+            this.body.vel.x += (this.walkLeft) ? -thiss.body.accel.x * me.timer.tick : this.body.accel.x * me.timer.tick;
+
+        } else {
+            me.game.world.removeChld(this);
+        }
+        this._super(me.Entity, "update", [delta]);
+        return true;
+
+    },
 });

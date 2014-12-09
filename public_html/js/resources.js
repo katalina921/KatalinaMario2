@@ -3,14 +3,17 @@ game.resources = [
      * @example
      * {name: "example", type:"image", src: "data/img/example.png"},
      */
+
+//    calling out images
     {name: "background-tiles", type: "image", src: "data/img/background-tiles.png"},
     {name: "meta-tiles", type: "image", src: "data/img/meta-tiles.png"},
     {name: "mario", type: "image", src: "data/img/player1.png"},
     {name: "332872", type: "image", src: "data/img/332872.png"},
     {name: "item-spritesheet", type: "image", src: "data/img/item-spritesheet.png"},
     {name: "Lara", type: "image", src: "data/img/Lara.png"},
+    {name: "slime-spritesheet", type: "image", src: "data/img/slime-spritesheet.png"},
+    {name: "title-screen", type: "image", src: "data/img/title-screen.jpg"},
     {name: "clouds2", type: "image", src: "data/img/clouds2.jpg"},
-    {name: "title-screen3", type: "image", src: "data/img/title-screen3.jpg"},
     /* Atlases 
      * @example
      * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
